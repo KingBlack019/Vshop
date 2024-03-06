@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<VBox alignment="CENTER" prefHeight="263.0" prefWidth="319.0" spacing="20.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vshop.LogIn">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label fx:id="welcomeText" lineSpacing="6.0" style="-fx-font-size: 34px; -fx-font-weight: bold;" text="Welcome!">
+      <textFill>
+         <LinearGradient endX="1.0" endY="1.0">
+            <stops>
+               <Stop>
+                  <color>
+                     <Color red="0.75" green="0.27000001072883606" blue="0.44657495617866516" />
+                  </color>
+               </Stop>
+               <Stop offset="1.0">
+                  <color>
+                     <Color red="0.24658869206905365" green="0.6855912804603577" blue="0.8070175647735596" />
+                  </color>
+               </Stop>
+            </stops>
+         </LinearGradient>
+      </textFill></Label>
+    <BorderPane prefHeight="200.0" prefWidth="200.0">
+        <left>
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Username" BorderPane.alignment="CENTER">
+            <textFill>
+               <LinearGradient endX="1.0" endY="1.0">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.75" green="0.27000001072883606" blue="0.44657495617866516" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.24658869206905365" green="0.6855912804603577" blue="0.8070175647735596" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </LinearGradient>
+            </textFill></Label>
+        </left>
+        <right>
+            <TextField fx:id="usernameField" style="-fx-background-color: #000000; -fx-text-fill: #00ffff; -fx-border-color: #00ffff; -fx-border-radius: 10px;" BorderPane.alignment="CENTER" />
+        </right>
+    </BorderPane>
+    <BorderPane prefHeight="200.0" prefWidth="200.0">
+        <left>
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Password" BorderPane.alignment="CENTER">
+            <textFill>
+               <LinearGradient endX="1.0" endY="1.0">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.75" green="0.27000001072883606" blue="0.44657495617866516" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.24658869206905365" green="0.6855912804603577" blue="0.8070175647735596" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </LinearGradient>
+            </textFill></Label>
+        </left>
+        <right>
+            <PasswordField fx:id="passwordField" style="-fx-background-color: #000000; -fx-text-fill: #00ffff; -fx-border-color: #00ffff; -fx-border-radius: 10px;" BorderPane.alignment="CENTER" />
+        </right>
+    </BorderPane>
+    <Button onAction="#onButtonClick" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #000000; -fx-font-size: 14px; -fx-font-family: 'Tahoma'; -fx-border-color: Yellow; -fx-border-radius: 10px; -fx-border-width: 2px;" text="Enter">
+      <textFill>
+         <LinearGradient endX="1.0" endY="1.0">
+            <stops>
+               <Stop>
+                  <color>
+                     <Color red="0.24658869206905365" green="0.6855912804603577" blue="0.8070175647735596" />
+                  </color>
+               </Stop>
+               <Stop offset="0.48545861297539156">
+                  <color>
+                     <Color red="0.24658869206905365" green="0.6855912804603577" blue="0.8070175647735596" />
+                  </color>
+               </Stop>
+               <Stop offset="0.5794183445190156">
+                  <color>
+                     <Color red="0.75" green="0.27000001072883606" blue="0.44657495617866516" />
+                  </color>
+               </Stop>
+               <Stop offset="1.0">
+                  <color>
+                     <Color red="0.75" green="0.27000001072883606" blue="0.44657495617866516" />
+                  </color>
+               </Stop>
+            </stops>
+         </LinearGradient>
+      </textFill></Button>
+</VBox>
