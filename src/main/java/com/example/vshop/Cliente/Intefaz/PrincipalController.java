@@ -1,9 +1,7 @@
-package com.example.vshop;
+package com.example.vshop.Cliente.Intefaz;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
 import java.io.IOException;
 
 public class PrincipalController {
@@ -12,13 +10,7 @@ public class PrincipalController {
 
     @FXML
     protected void onButtonClick() throws IOException {
-        String username = usernameField.getText();
-        String password = usernameField.getText();
-
-        Principal.panelPrincipal(username, password);
-
-        // Close login window
-        stageLogIn.close();
+        Configuracion.ConfigDialog();
     }
 
     // Método para establecer el nombre de usuario

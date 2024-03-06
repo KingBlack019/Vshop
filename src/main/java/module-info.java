@@ -10,7 +10,12 @@ module com.example.vshop {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.sql;
 
-    opens com.example.vshop to javafx.fxml;
-    exports com.example.vshop;
+    opens com.example.vshop.Servidor to javafx.fxml;
+    exports com.example.vshop.Servidor;
+    exports com.example.vshop.Cliente;
+    opens com.example.vshop.Cliente to javafx.fxml;
+    exports com.example.vshop.Cliente.Intefaz;
+    opens com.example.vshop.Cliente.Intefaz to javafx.fxml;
 }

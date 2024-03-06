@@ -11,7 +11,7 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 
-<VBox alignment="CENTER" prefHeight="263.0" prefWidth="319.0" spacing="20.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vshop.LogIn">
+<VBox alignment="CENTER" prefHeight="263.0" prefWidth="319.0" spacing="20.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vshop.Cliente.Intefaz.LogIn">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
