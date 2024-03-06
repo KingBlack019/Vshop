@@ -30,7 +30,7 @@ public class BaseDeDatos {
                 System.out.println("Usuario conectado correctamente");
                 return true;
             }else{
-                System.out.println("El usuario no existe");
+                System.out.println("Usuario no existe");
                 return false;
             }
         }catch (Exception e){
