@@ -17,12 +17,14 @@
                   <Font name="Tahoma Bold" size="18.0" />
                </font>
             </Label>
-            <Button layoutX="518.0" layoutY="12.0" mnemonicParsing="false" onAction="#onButtonClick" style="-fx-background-color: BLy;" />
-            <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="543.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Imagenes/Configuracion.png" />
-               </image>
-            </ImageView>
+            <Button layoutX="518.0" layoutY="12.0" mnemonicParsing="false" onAction="#onButtonClick" style="-fx-background-color: BLy;">
+               <graphic>
+                  <ImageView fitHeight="42.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Imagenes/Configuracion.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </Pane>
       <AnchorPane layoutX="9.0" layoutY="71.0" prefHeight="319.0" prefWidth="583.0" style="-fx-background-color: WHITE;" />

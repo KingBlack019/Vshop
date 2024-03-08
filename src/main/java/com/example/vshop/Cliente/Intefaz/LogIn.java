@@ -7,15 +7,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 public class LogIn extends Application {
 
     private static Stage stageLogIn;
-    FXMLLoader fxmlLoader = new FXMLLoader(LogIn.class.getResource("LogIn.fxml"));
+    FXMLLoader fxmlLoader = new FXMLLoader(LogIn.class.getResource("/com/example/vshop/LogIn.fxml"));
     @Override
     public void start(Stage stage) throws IOException {
+
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+
         stage.setTitle("Inicio Sesion");
         stage.setScene(scene);
         stage.show();

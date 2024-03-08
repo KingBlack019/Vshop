@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Principal {
 
     public static void panelPrincipal(String username, String password) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Principal.class.getResource("Principal.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Principal.class.getResource("/com/example/vshop/Principal.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 
