@@ -17,7 +17,7 @@
                   <Font name="Tahoma Bold" size="18.0" />
                </font>
             </Label>
-            <Button layoutX="518.0" layoutY="12.0" mnemonicParsing="false" onAction="#onButtonClick" style="-fx-background-color: BLy;">
+            <Button layoutX="517.0" layoutY="5.0" mnemonicParsing="false" onAction="#onButtonClick" style="-fx-background-color: BLy;">
                <graphic>
                   <ImageView fitHeight="42.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
