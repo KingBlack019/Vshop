@@ -49,12 +49,11 @@
                </children></AnchorPane>
       </content>
     </Tab>
-      <Tab text="Sobre mí" />
-      <Tab text="Untitled Tab">
+      <Tab text="Sobre mí">
          <content>
             <ScrollPane prefHeight="574.0" prefWidth="650.0">
                <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="612.0" prefWidth="651.0" style="-fx-background-color: black;">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="612.0" prefWidth="636.0" scaleShape="false" style="-fx-background-color: black;">
                      <children>
                         <Label layoutX="45.0" layoutY="14.0" prefHeight="128.0" prefWidth="560.0" text="Buenas soy Vicente Marín, programador Junior sin experiencia laboral. Este es una tarea hecha por propia cuenta para gestionar las ventas sobre un prototipo de tienda" wrapText="true">
                            <font>

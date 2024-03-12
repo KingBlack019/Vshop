@@ -18,7 +18,7 @@ public class LogIn extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 420, 340);
 
         stage.setTitle("Inicio Sesion");
         stage.setScene(scene);

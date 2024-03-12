@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vshop.Cliente.Intefaz.PrincipalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="822.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vshop.Cliente.Intefaz.PrincipalController">
    <children>
-      <Pane prefHeight="59.0" prefWidth="600.0" style="-fx-background-color: BLUE;">
+      <Pane prefHeight="59.0" prefWidth="820.0" style="-fx-background-color: BLUE;">
          <children>
-            <Label fx:id="userLogged" layoutX="350.0" layoutY="21.0" prefHeight="17.0" prefWidth="160.0" text="infoOnly" textFill="#e2e2e2">
+            <Label fx:id="userLogged" layoutX="660.0" layoutY="19.0" prefHeight="17.0" prefWidth="160.0" text="infoOnly" textFill="#e2e2e2">
                <font>
                   <Font name="Tahoma Bold" size="18.0" />
                </font>
             </Label>
-            <Button layoutX="517.0" layoutY="5.0" mnemonicParsing="false" onAction="#onButtonClick" style="-fx-background-color: BLy;">
+            <Button layoutX="740.0" layoutY="6.0" mnemonicParsing="false" onAction="#onButtonClick" style="-fx-background-color: BLy;">
                <graphic>
                   <ImageView fitHeight="42.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -27,6 +29,27 @@
                </graphic></Button>
          </children>
       </Pane>
-      <AnchorPane layoutX="9.0" layoutY="71.0" prefHeight="319.0" prefWidth="583.0" style="-fx-background-color: WHITE;" />
+      <AnchorPane layoutX="9.0" layoutY="71.0" prefHeight="539.0" prefWidth="804.0" style="-fx-background-color: WHITE;">
+         <children>
+            <Accordion prefHeight="539.0" prefWidth="202.0">
+              <panes>
+                <TitledPane animated="false" text="untitled 1">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="untitled 2">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="untitled 3">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </TitledPane>
+              </panes>
+            </Accordion>
+         </children></AnchorPane>
    </children>
 </AnchorPane>

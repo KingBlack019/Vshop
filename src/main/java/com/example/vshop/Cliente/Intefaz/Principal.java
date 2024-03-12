@@ -11,7 +11,7 @@ public class Principal {
     public static void panelPrincipal(String username, String password) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Principal.class.getResource("/com/example/vshop/Principal.fxml"));
 
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 820, 620);
 
         // Accede al controlador del archivo FXML
         PrincipalController controller = fxmlLoader.getController();
