@@ -12,7 +12,7 @@ public class GestionServidor {
     DataInputStream flujoEntrada;
     DataOutputStream flujoSalida;
 
-    public void logIn(Socket skCliente) {
+    public boolean logIn(Socket skCliente) {
         try {
             flujoEntrada = new DataInputStream(skCliente.getInputStream());
             flujoSalida = new DataOutputStream(skCliente.getOutputStream());
@@ -21,7 +21,7 @@ public class GestionServidor {
             String username = flujoEntrada.readUTF(); // leer String 1
             String password = flujoEntrada.readUTF(); // leer String 2
 
-            baseDeDatos.logIn(username, password);
+            return baseDeDatos.logIn(username, password);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
