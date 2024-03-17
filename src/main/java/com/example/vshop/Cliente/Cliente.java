@@ -11,11 +11,58 @@ import java.util.Date;
 
 public class Cliente {
     private String nombre;
-    private String contraseña;
-    private Date fechaNacimiento;
+    private String contrasena;
+    private String fechaNacimiento;
     private String correoElectronico;
-
+    private String cargoEmpresa;
     static LogIn login = new LogIn();
+
+    public Cliente(String nombre, String cargoEmpresa, String fechaNacimiento, String correoElectronico) {
+        this.nombre = nombre;
+        this.cargoEmpresa= cargoEmpresa;
+        this.fechaNacimiento = fechaNacimiento;
+        this.correoElectronico = correoElectronico;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+
+    public String getCargoEmpresa() {
+        return cargoEmpresa;
+    }
+
+    public void setCargoEmpresa(String cargoEmpresa) {
+        this.cargoEmpresa = cargoEmpresa;
+    }
 
     public static void main(String[] args) {
         try {
@@ -26,4 +73,15 @@ public class Cliente {
         }
     }
 
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nombre='" + nombre + '\'' +
+                ", contrasena='" + contrasena + '\'' +
+                ", fechaNacimiento='" + fechaNacimiento + '\'' +
+                ", correoElectronico='" + correoElectronico + '\'' +
+                ", cargoEmpresa='" + cargoEmpresa + '\'' +
+                '}';
+    }
 }

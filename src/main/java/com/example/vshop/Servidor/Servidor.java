@@ -17,6 +17,8 @@ public class Servidor extends Thread{
         this.skCliente = skCliente;
     }
 
+
+
     static ArrayList<Cliente> clientesConectados = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -47,6 +49,12 @@ public class Servidor extends Thread{
                 while (skCliente.isConnected()){
                     String datoRecibido = datosEntrada.readUTF();
                     System.out.println("datoRecibido = " + datoRecibido);
+
+                    switch (datoRecibido.toUpperCase().trim()){
+                        case "VERMISDATOS":
+                            gestionServidor.verDatosUsuario();
+                            break;
+                    }
 
                 }
             }else{

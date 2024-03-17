@@ -14,7 +14,7 @@
    <children>
       <Pane prefHeight="59.0" prefWidth="820.0" style="-fx-background-color: BLUE;">
          <children>
-            <Label fx:id="userLogged" layoutX="660.0" layoutY="19.0" prefHeight="17.0" prefWidth="160.0" text="infoOnly" textFill="#e2e2e2">
+            <Label fx:id="userLogged" layoutX="504.0" layoutY="20.0" prefHeight="17.0" prefWidth="160.0" text="infoOnly" textFill="#e2e2e2">
                <font>
                   <Font name="Tahoma Bold" size="18.0" />
                </font>
@@ -27,6 +27,11 @@
                      </image>
                   </ImageView>
                </graphic></Button>
+            <Label layoutX="448.0" layoutY="18.0" text="User:" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <AnchorPane layoutX="9.0" layoutY="71.0" prefHeight="539.0" prefWidth="804.0" style="-fx-background-color: WHITE;">

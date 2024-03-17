@@ -14,7 +14,7 @@ public class Principal {
         this.skCliente = socketClienteObtenido;
     }
 
-    public void panelPrincipal(String username, String password) throws IOException {
+    public void panelPrincipal(String username) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Principal.class.getResource("/com/example/vshop/Principal.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 820, 620);
 

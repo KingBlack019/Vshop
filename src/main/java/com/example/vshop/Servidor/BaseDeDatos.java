@@ -1,5 +1,6 @@
 package com.example.vshop.Servidor;
 
+import com.example.vshop.Cliente.Cliente;
 import com.example.vshop.GestionContenido.Idioma;
 import com.example.vshop.GestionContenido.Ropa;
 import com.example.vshop.GestionContenido.Tienda;
@@ -112,4 +113,28 @@ public class BaseDeDatos {
         return DriverManager.getConnection("jdbc:mysql://localhost:3306/" + nameDatabase, userDatabase, passwordDatabase);
     }
 
+    public Cliente obtenerDatosUsuario(String username) {
+        System.out.println("ver Datos Usuario BaseDeDatos");
+        System.out.println("username = " + username);
+        try{
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "SELECT * FROM usuarios WHERE usuarios.nombreUsuario = '" + username + "' "
+            );
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                String nombreUsuario = resultSet.getString("nombreUsuario");
+                String cargoEmpresa = resultSet.getString("cargoEmpresa");
+                String fechaNacimiento = resultSet.getString("fechaNacimiento");
+                String correoElectronico = resultSet.getString("correoElectronico");
+
+
+                return new Cliente(nombreUsuario, cargoEmpresa, fechaNacimiento, correoElectronico);
+            }
+
+        }catch (Exception e ){
+            System.out.println("e.getMessage() = " + e.getMessage());
+        }
+        return null;
+    }
 }

@@ -12,12 +12,16 @@ public class PrincipalController {
 
     @FXML
     protected void onButtonClick() throws IOException {
-        Configuracion.ConfigDialog(skCliente);
+        Configuracion.ConfigDialog(skCliente, getUserLogged());
     }
 
     // Método para establecer el nombre de usuario
     public void setUser(String username) {
-        userLogged.setText("User: " + username);
+        userLogged.setText(username);
+    }
+
+    public String getUserLogged() {
+        return userLogged.getText();
     }
 
     Socket skCliente;
