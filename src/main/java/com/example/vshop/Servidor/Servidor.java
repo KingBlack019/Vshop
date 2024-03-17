@@ -11,7 +11,7 @@ import com.example.vshop.Cliente.Cliente;;
 public class Servidor extends Thread{
     Socket skCliente;
     static final int PUERTO = 1234;
-    static GestionServidor gestionServidor = new GestionServidor();
+    static GestionServidor gestionServidor;
 
     public Servidor(Socket skCliente) throws IOException {
         this.skCliente = skCliente;
@@ -22,7 +22,9 @@ public class Servidor extends Thread{
     public static void main(String[] args) {
         try (ServerSocket skServidor = new ServerSocket(PUERTO)){
             System.out.println("El servidor está encendido");
+            gestionServidor = new GestionServidor(skServidor);
             System.out.println(GestionServidor.baseDeDatos.isConnected());
+
 
             while (true){
                 Socket skCliente = skServidor.accept();
@@ -39,18 +41,17 @@ public class Servidor extends Thread{
         System.out.println("Atendiendo al cliente");
         try {
 
-
             if(gestionServidor.logIn(skCliente)){
-
                 DataInputStream datosEntrada = new DataInputStream(skCliente.getInputStream());
 
                 while (skCliente.isConnected()){
                     String datoRecibido = datosEntrada.readUTF();
                     System.out.println("datoRecibido = " + datoRecibido);
-                }
 
+                }
             }else{
                 System.out.println("No se ha podido conectar con el cliente");
+                skCliente.close();
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

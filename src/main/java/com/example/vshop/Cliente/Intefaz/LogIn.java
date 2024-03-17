@@ -42,13 +42,17 @@ public class LogIn extends Application {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        Principal.panelPrincipal(username, password);
 
         DataOutputStream datosSalida = new DataOutputStream(socketClienteObtenido.getOutputStream());
+        DataInputStream dis = new DataInputStream(socketClienteObtenido.getInputStream());
 
         datosSalida.writeUTF(username);
         datosSalida.writeUTF(password);
 
+        if (dis.readBoolean()){
+            Principal p = new Principal(socketClienteObtenido);
+            p.panelPrincipal(username, password);
+        }
         // Close login window
         stageLogIn.close();
     }

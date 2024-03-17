@@ -3,6 +3,7 @@ package com.example.vshop.Servidor;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 public class GestionServidor {
@@ -12,16 +13,26 @@ public class GestionServidor {
     DataInputStream flujoEntrada;
     DataOutputStream flujoSalida;
 
+    ServerSocket skServidor;
+    public GestionServidor(ServerSocket skServidor) {
+        this.skServidor = skServidor;
+    }
+
     public boolean logIn(Socket skCliente) {
         try {
             flujoEntrada = new DataInputStream(skCliente.getInputStream());
-            flujoSalida = new DataOutputStream(skCliente.getOutputStream());
 
             // recibe el username y la contraseña
             String username = flujoEntrada.readUTF(); // leer String 1
             String password = flujoEntrada.readUTF(); // leer String 2
 
-            return baseDeDatos.logIn(username, password);
+            if (baseDeDatos.logIn(username, password)){
+                flujoSalida = new DataOutputStream(skCliente.getOutputStream());
+                flujoSalida.writeBoolean(true);
+                return true;
+            }
+
+            return false;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

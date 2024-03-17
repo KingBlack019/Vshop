@@ -10,29 +10,27 @@ import java.util.ArrayList;
 public class BaseDeDatos {
 
     // Declaracion de variables de la database
-    private static final String nameDatabase ="Vshop";
-    private static final String userDatabase ="Vshop";
-    private static final String passwordDatabase ="Vshop";
+    private static final String nameDatabase ="vshop";
+    private static final String userDatabase ="vshop";
+    private static final String passwordDatabase ="vshop";
 
     // Declaracion de variables de clases
     Ropa gestionRopa = new Ropa();
     Tienda gestionTienda = new Tienda();
 
     public boolean isConnected(){
-        Connection connection = null;
         try{
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+nameDatabase, userDatabase, passwordDatabase);
+            getConnection();
             return true; // si no hay excepcion de la conexion significa que se conecta
         }catch (Exception e){
             return false;
         }
     }
 
-
+// TODO BASE DE DATOS LOGIN
     public boolean logIn(String username, String password) {
-        Connection connection = null;
         try{
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+nameDatabase, userDatabase, passwordDatabase);
+            Connection connection = getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(
                     "SELECT * FROM Usuarios WHERE nombreUsuario  = '" + username + "' AND contrasenaUsuario = '" + password +"'"
             );
@@ -51,9 +49,8 @@ public class BaseDeDatos {
     }
 
     public boolean filtrarEstiloTienda(String estiloTienda) {
-        Connection connection = null;
         try{
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+nameDatabase, userDatabase, passwordDatabase);
+            Connection connection = getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(
                     "SELECT ropa.nombre FROM tienda INNER JOIN tipo ON tienda. "
             );
@@ -73,9 +70,9 @@ public class BaseDeDatos {
 
     public ArrayList<String> obtenerIdiomasUsuario (String nombreUsuario){
         ArrayList<String> idiomasHablado = new ArrayList<>();
-        Connection connection = null;
+
         try{
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+nameDatabase, userDatabase, passwordDatabase);
+            Connection connection = getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(
                     "SELECT idiomas.nombreIdioma FROM usuarios INNER JOIN conocimientosUsuario ON usuarios."
             );
@@ -93,9 +90,9 @@ public class BaseDeDatos {
 
     public ArrayList<String> obtenerLenguajeProgramacionUsuario (String nombreUsuario){
         ArrayList<String> lenguajeProgramacionConocidos = new ArrayList<>();
-        Connection connection = null;
+
         try{
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+nameDatabase, userDatabase, passwordDatabase);
+            Connection connection = getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(
                     "SELECT lenguajeProgramacion.nombreLenguajeProgramacion FROM usuarios INNER JOIN conocimientosUsuario ON usuarios."
             );
@@ -111,5 +108,8 @@ public class BaseDeDatos {
         return lenguajeProgramacionConocidos;
     }
 
+    private Connection getConnection() throws SQLException {
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/" + nameDatabase, userDatabase, passwordDatabase);
+    }
 
 }

@@ -9,7 +9,6 @@ module com.example.vshop {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
-    requires com.almasb.fxgl.all;
     requires java.sql;
 
     opens com.example.vshop.Servidor to javafx.fxml;
