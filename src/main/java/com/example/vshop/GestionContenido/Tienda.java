@@ -5,14 +5,14 @@ public class Tienda {
     private String nombreTienda;
     private String descripcion;
     private String direccion;
-    private String idEstilo;
+    private Estilo estilo;
 
-    public Tienda(String idTienda, String nombreTienda, String descripcion, String direccion, String idEstilo) {
+    public Tienda(String idTienda, String nombreTienda, String descripcion, String direccion, Estilo estilo) {
         this.idTienda = idTienda;
         this.nombreTienda = nombreTienda;
         this.descripcion = descripcion;
         this.direccion = direccion;
-        this.idEstilo = idEstilo;
+        this.estilo = estilo;
     }
 
     public Tienda() {
@@ -50,11 +50,11 @@ public class Tienda {
         this.direccion = direccion;
     }
 
-    public String getIdEstilo() {
-        return idEstilo;
+    public Estilo getEstilo() {
+        return estilo;
     }
 
-    public void setIdEstilo(String idEstilo) {
-        this.idEstilo = idEstilo;
+    public void setEstilo(Estilo estilo) {
+        this.estilo = estilo;
     }
 }

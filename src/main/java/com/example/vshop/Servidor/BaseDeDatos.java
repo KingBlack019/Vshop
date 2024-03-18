@@ -1,6 +1,7 @@
 package com.example.vshop.Servidor;
 
 import com.example.vshop.Cliente.Cliente;
+import com.example.vshop.GestionContenido.Estilo;
 import com.example.vshop.GestionContenido.Idioma;
 import com.example.vshop.GestionContenido.Ropa;
 import com.example.vshop.GestionContenido.Tienda;
@@ -114,8 +115,6 @@ public class BaseDeDatos {
     }
 
     public Cliente obtenerDatosUsuario(String username) {
-        System.out.println("ver Datos Usuario BaseDeDatos");
-        System.out.println("username = " + username);
         try{
             Connection connection = getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(
@@ -130,6 +129,48 @@ public class BaseDeDatos {
 
 
                 return new Cliente(nombreUsuario, cargoEmpresa, fechaNacimiento, correoElectronico);
+            }
+
+        }catch (Exception e ){
+            System.out.println("e.getMessage() = " + e.getMessage());
+        }
+        return null;
+    }
+
+    public Tienda obtenerTienda(String nombreTienda) {
+        try{
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "SELECT * FROM tiendas WHERE tiendas.idTienda = '" + nombreTienda + "' "
+            );
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                String idTienda = resultSet.getString("idTienda");
+                String descripcion = resultSet.getString("descripcion");
+                String direccion = resultSet.getString("direccion");
+                String idEstilo = resultSet.getString("idEstilo");
+                String nombreEstiloTienda = getNombreEstiloTienda(idEstilo);
+
+
+                return new Tienda(idTienda, nombreTienda, descripcion, direccion, new Estilo(idEstilo, nombreEstiloTienda));
+            }
+
+        }catch (Exception e ){
+            System.out.println("e.getMessage() = " + e.getMessage());
+        }
+        return null;
+
+    }
+
+    private String getNombreEstiloTienda(String idEstilo) {
+        try{
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "SELECT * FROM estiloTienda WHERE estiloTienda.idEstilo = '" + idEstilo + "' "
+            );
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                return resultSet.getString("nombreEstilo");
             }
 
         }catch (Exception e ){

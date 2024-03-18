@@ -54,6 +54,9 @@ public class Servidor extends Thread{
                         case "VERMISDATOS":
                             gestionServidor.verDatosUsuario();
                             break;
+                        case "VERROPA":
+                            gestionServidor.verRopaTienda();
+                            break;
                     }
 
                 }

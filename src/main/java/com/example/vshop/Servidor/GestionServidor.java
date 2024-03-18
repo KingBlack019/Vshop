@@ -1,6 +1,7 @@
 package com.example.vshop.Servidor;
 
 import com.example.vshop.Cliente.Cliente;
+import com.example.vshop.GestionContenido.Tienda;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -66,19 +67,17 @@ public class GestionServidor {
 
     public void verDatosUsuario() throws IOException {
         System.out.println(" Ver datos usuario gestion servidor ");
-
         Cliente datosUsuario = baseDeDatos.obtenerDatosUsuario(flujoEntrada.readUTF());
-
-        System.out.println("datosUsuario = " + datosUsuario.getNombre());
-        System.out.println("datosUsuario = " + datosUsuario.getCargoEmpresa());
-        System.out.println("datosUsuario = " + datosUsuario.getFechaNacimiento());
-        System.out.println("datosUsuario = " + datosUsuario.getCorreoElectronico());
-
 
         escribirTexto(datosUsuario.getNombre());
         escribirTexto(datosUsuario.getCargoEmpresa());
         escribirTexto(datosUsuario.getFechaNacimiento());
         escribirTexto(datosUsuario.getCorreoElectronico());
 
+    }
+
+    public void verRopaTienda() throws IOException {
+        System.out.println(" Ver datos de la ropa según la tienda ");
+        Tienda unaTienda = baseDeDatos.obtenerTienda(flujoEntrada.readUTF());
     }
 }
