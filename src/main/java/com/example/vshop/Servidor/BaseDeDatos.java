@@ -1,10 +1,7 @@
 package com.example.vshop.Servidor;
 
 import com.example.vshop.Cliente.Cliente;
-import com.example.vshop.GestionContenido.Estilo;
-import com.example.vshop.GestionContenido.Idioma;
-import com.example.vshop.GestionContenido.Ropa;
-import com.example.vshop.GestionContenido.Tienda;
+import com.example.vshop.GestionContenido.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -178,4 +175,57 @@ public class BaseDeDatos {
         }
         return null;
     }
+
+    // TODO OBSERVAR EL COMPORTAMIENTO DEL LENGUAJE DEL USUARIO PARA OBSERVAR SI FUNCIONA CORRECTAMENTE
+    // - HAY QUE INSERTAR TANTO LOS LENGUAJES A LA BASE DE DATOS COMO LA UNION CON RESPECTIVOS USUARIOS
+
+    public ArrayList<LenguajeProgramacion> getListaLenguajesUsuario(String nombreUsuario){
+        ArrayList<LenguajeProgramacion> lenguajes = null;
+        try{
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "SELECT * FROM usuarios INNER JOIN conocimientosUsuario ON usuarios.nombreUsuario = conocimientosUsuario.nombreUsuario" +
+                            "WHERE usuarios.nombreUsuario = '" + nombreUsuario + "' "
+            );
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                // si el tipo de conociemiento del usuario coincide con un lenguaje pues lo extrae para añadirlo al arraylist
+                if (resultSet.getString("tipoConocimiento").toUpperCase().equals(TipoConocimiento.LENGUAJE.toString())){
+                    LenguajeProgramacion lp = getLenguajeProgramacion(resultSet.getString("claveConocimiento"));
+                    if( lp != null ){
+                        lenguajes.add(lp);
+                    }
+                }
+            }
+
+        }catch (Exception e ){
+            System.out.println("e.getMessage() = " + e.getMessage());
+        }
+
+        return lenguajes;
+    }
+
+    private LenguajeProgramacion getLenguajeProgramacion(String claveConocimiento) {
+        try{
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "SELECT * FROM lenguajesProgramacion WHERE lenguajesProgramacion.idLenguajeProgramacion = '" + claveConocimiento + "' "
+            );
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+               return new LenguajeProgramacion(claveConocimiento, resultSet.getString("nombreLenguajeProgramacion"));
+            }
+
+        }catch (Exception e ){
+            System.out.println("e.getMessage() = " + e.getMessage());
+        }
+        return null;
+    }
+
+}
+
+enum TipoConocimiento{
+    LENGUAJE,
+    APTITUD,
+    IDIOMA
 }

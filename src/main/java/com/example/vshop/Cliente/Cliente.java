@@ -15,6 +15,8 @@ public class Cliente {
     private String fechaNacimiento;
     private String correoElectronico;
     private String cargoEmpresa;
+
+
     static LogIn login = new LogIn();
 
     public Cliente(String nombre, String cargoEmpresa, String fechaNacimiento, String correoElectronico) {
